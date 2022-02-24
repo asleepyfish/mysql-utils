@@ -1,0 +1,5 @@
+conn:
+  driver: com.mysql.cj.jdbc.Driver
+  url: jdbc:mysql://10.20.146.140:33061/ibook2_position
+  user: root
+  password: root123

@@ -45,6 +45,7 @@ public class GenerateEntityService {
                 bw.write(generateAttributes(concat));
                 bw.newLine();
                 bw.flush();
+                
             }
         }
         bw.write(generateAttributes(concat));
