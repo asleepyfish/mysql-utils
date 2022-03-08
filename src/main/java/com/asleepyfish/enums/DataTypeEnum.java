@@ -44,7 +44,7 @@ public enum DataTypeEnum {
         return javaType;
     }
 
-    public static String getJavaType(String sqlType) {
+    public static String getJavaTypeBySqlType(String sqlType) {
         for (DataTypeEnum value : values()) {
             if (Objects.equals(value.getSqlType(), sqlType)) {
                 return value.getJavaType();

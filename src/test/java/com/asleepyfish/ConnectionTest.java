@@ -1,13 +1,11 @@
 package com.asleepyfish;
 
-import com.asleepyfish.jdbc.MysqlConnector;
-import com.asleepyfish.pojo.ConnParam;
-import com.asleepyfish.service.MysqlOperationService;
-import com.mysql.cj.jdbc.MysqlDataSource;
+import com.asleepyfish.service.DbService;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.annotation.Resource;
+import java.util.Map;
 
 /**
  * @Author: zhoujh42045
@@ -17,10 +15,11 @@ import javax.annotation.Resource;
 @SpringBootTest
 public class ConnectionTest {
     @Resource
-    private MysqlOperationService mysqlOperationService;
+    private DbService mysqlOperationService;
 
     @Test
     public void testConnection() {
-        mysqlOperationService.getColumnTypeList("a_security");
+        Map<String, String> map = mysqlOperationService.getColumnTypeMap("d_portfolio").getJavaMap();
+        map.entrySet().forEach(System.out::println);
     }
 }

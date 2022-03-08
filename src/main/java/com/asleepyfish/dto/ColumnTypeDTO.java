@@ -1,5 +1,7 @@
 package com.asleepyfish.dto;
 
+import java.util.Map;
+
 /**
  * @Author: zhoujh42045
  * @Date: 2022/2/24 13:51
@@ -7,36 +9,36 @@ package com.asleepyfish.dto;
  */
 public class ColumnTypeDTO {
     /**
-     * 列名
+     * 数据库中的字段名和类型
      */
-    private String columnName;
+    Map<String, String> sqlMap;
 
     /**
-     * 类型
+     * java中对应的字段名和类型
      */
-    private String columnType;
+    Map<String, String> javaMap;
 
-    public String getColumnName() {
-        return columnName;
+    public Map<String, String> getSqlMap() {
+        return sqlMap;
     }
 
-    public void setColumnName(String columnName) {
-        this.columnName = columnName;
+    public void setSqlMap(Map<String, String> sqlMap) {
+        this.sqlMap = sqlMap;
     }
 
-    public String getColumnType() {
-        return columnType;
+    public Map<String, String> getJavaMap() {
+        return javaMap;
     }
 
-    public void setColumnType(String columnType) {
-        this.columnType = columnType;
+    public void setJavaMap(Map<String, String> javaMap) {
+        this.javaMap = javaMap;
     }
 
     @Override
     public String toString() {
         return "ColumnTypeDTO{" +
-                "columnName='" + columnName + '\'' +
-                ", columnType='" + columnType + '\'' +
+                "sqlMap=" + sqlMap +
+                ", javaMap=" + javaMap +
                 '}';
     }
 }

@@ -2,7 +2,9 @@ package com.asleepyfish.jdbc;
 
 import com.asleepyfish.pojo.ConnParam;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 /**
  * @Author: zhoujh42045
@@ -10,9 +12,7 @@ import java.sql.*;
  * @Description: 数据库连接
  */
 public class MysqlConnector {
-    public Connection conn;
-
-    public Statement statement;
+    private Connection conn;
 
     public MysqlConnector(ConnParam connParam) {
         try {
@@ -22,11 +22,13 @@ public class MysqlConnector {
             conn = DriverManager.getConnection(connParam.getUrl(), connParam.getUser(), connParam.getPassword());
             // 设置是否自动提交
             conn.setAutoCommit(false);
-            // 创建statement类对象，用来执行SQL语句
-            statement = conn.createStatement();
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public Connection getConn() {
+        return conn;
     }
 
     /**
@@ -56,7 +58,6 @@ public class MysqlConnector {
      */
     public void close() {
         try {
-            statement.close();
             conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
