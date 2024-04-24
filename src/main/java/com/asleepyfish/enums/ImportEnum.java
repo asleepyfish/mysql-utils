@@ -8,7 +8,7 @@ import java.util.Objects;
  * @Description: 需要引入包的JavaType
  */
 public enum ImportEnum {
-    STRING("BigDecimal", "import java.math.BigDecimal;"),
+    BIG_DECIMAL("BigDecimal", "import java.math.BigDecimal;"),
     DATE("Date", "import java.sql.Date;"),
     TIME("Time", "import java.sql.Time;"),
     TIMESTAMP("Timestamp", "import java.sql.Timestamp;");

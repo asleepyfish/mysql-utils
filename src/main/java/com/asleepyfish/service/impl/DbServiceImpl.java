@@ -28,7 +28,7 @@ public class DbServiceImpl implements DbService {
     public ColumnTypeDTO getColumnTypeMap(String tableName) {
         Map<String, String> map = new LinkedHashMap<>();
         MysqlConnector mysqlConnector = new MysqlConnector(connParam);
-        String sql = "select COLUMN_NAME, data_type from information_schema.COLUMNS a where a.TABLE_NAME = ?";
+        String sql = "select COLUMN_NAME, data_type from information_schema.COLUMNS where TABLE_NAME = ?";
         try {
             PreparedStatement preparedStatement = mysqlConnector.getConn().prepareStatement(sql);
             preparedStatement.setString(1, tableName);

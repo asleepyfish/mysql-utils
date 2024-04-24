@@ -19,7 +19,10 @@ public class MysqlConnector {
             // 注册 JDBC 驱动
             Class.forName(connParam.getDriver());
             // 使用DriverManager获取连接
+            long start = System.currentTimeMillis();
             conn = DriverManager.getConnection(connParam.getUrl(), connParam.getUser(), connParam.getPassword());
+            long end = System.currentTimeMillis();
+            System.out.println("共耗时：" + (end - start) + "ms");
             // 设置是否自动提交
             conn.setAutoCommit(false);
         } catch (ClassNotFoundException | SQLException e) {
